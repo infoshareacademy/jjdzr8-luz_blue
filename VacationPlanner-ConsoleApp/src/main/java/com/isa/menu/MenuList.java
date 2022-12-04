@@ -12,6 +12,9 @@ public enum MenuList {
     private final int position;
     private final String description;
 
+    //TODO Create movement within menu tree
+    //TODO Create option to call behaviour
+
     MenuList(int position, String description) {
         this.position = position;
         this.description = description;
