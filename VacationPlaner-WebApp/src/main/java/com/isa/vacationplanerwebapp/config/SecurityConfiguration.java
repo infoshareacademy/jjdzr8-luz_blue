@@ -31,7 +31,8 @@ public class SecurityConfiguration {
                 .requestMatchers("/vacationDelete").hasRole("SUPERUSER")
                 .requestMatchers("/employeeDelete").hasRole("SUPERUSER")
                 .requestMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().denyAll())
+//                .anyRequest().denyAll()
+            )
             .formLogin((form) -> form
                 .loginPage("/login")
                 .permitAll())
@@ -49,7 +50,7 @@ public class SecurityConfiguration {
             .build());
         manager.createUser(User.withUsername("superuser")
             .password(bCryptPasswordEncoder().encode("superuserPass"))
-            .roles("SUPERUSER")
+            .roles("SUPERUSER", "USER")
             .build());
         manager.createUser(User.withUsername("admin")
             .password(bCryptPasswordEncoder().encode("adminPass"))
