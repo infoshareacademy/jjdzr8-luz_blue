@@ -1,5 +1,8 @@
 package com.isa.vacationplanerwebapp.config;
 
+import com.isa.vacationplanerwebapp.controller.EmployeeController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,8 +18,11 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfiguration {
 
+    public static final Logger logger = LoggerFactory.getLogger(EmployeeController.class);
+
     @Bean
     SecurityFilterChain web(HttpSecurity http) throws Exception {
+        logger.info("Configuring security filter chain");
         http
             .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/", "/home", "/index", "/css/*", "/assets/*", "/js/*").permitAll()
@@ -43,6 +49,7 @@ public class SecurityConfiguration {
 
     @Bean
     public UserDetailsService userDetailsService() {
+        logger.info("Creating user details service");
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         manager.createUser(User.withUsername("user")
             .password(bCryptPasswordEncoder().encode("userPass"))
@@ -61,6 +68,7 @@ public class SecurityConfiguration {
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
+        logger.info("Creating BCrypt password encoder");
         return new BCryptPasswordEncoder();
     }
 
