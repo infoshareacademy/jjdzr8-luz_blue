@@ -14,7 +14,7 @@ services:
       MYSQL_USER: vacationplannerUser
       MYSQL_PASSWORD: superSecretPassword
     ports:
-      - "3306:3306"
+      - "3307:3307"
     networks:
       - backend
 
