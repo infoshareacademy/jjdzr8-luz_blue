@@ -1,6 +1,6 @@
 package com.isa.vacationplanerwebapp.config;
 
-import com.isa.vacationplanerwebapp.controller.EmployeeController;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -23,9 +23,9 @@ public class SecurityConfiguration {
     @Bean
     SecurityFilterChain web(HttpSecurity http) throws Exception {
         logger.info("Configuring security filter chain");
-        http
+        http.csrf().disable()
             .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/", "/home", "/index", "/css/*", "/assets/*", "/js/*").permitAll()
+                .requestMatchers("/", "/home", "/index", "/css/*", "/assets/*", "/js/*", "/login/**").permitAll()
                 .requestMatchers("/VacationList").hasRole("USER")
                 .requestMatchers("/employeeList").hasRole("USER")
                 .requestMatchers("/teamList").hasRole("USER")
