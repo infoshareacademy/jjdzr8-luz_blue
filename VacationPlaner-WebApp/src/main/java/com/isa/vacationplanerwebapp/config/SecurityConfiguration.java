@@ -25,9 +25,9 @@ public class SecurityConfiguration {
         logger.info("Configuring security filter chain");
         http.csrf().disable()
             .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/", "/home", "/index", "/css/*", "/assets/*", "/js/*", "/login/**").permitAll()
-                .requestMatchers("/VacationList","/employeeList","/teamList","/vacationAdd").hasRole("USER")
-                .requestMatchers("/vacationAdd","/vacationList","/vacationModify","/employeeAdd","/employeeModify","/teamModify","/teamAdd","/teamDelete","/vacationDelete","/employeeDelete").hasRole("SUPERUSER")
+                .requestMatchers("/", "/home", "/index/**", "/css/**", "/assets/**", "/js/**", "/login/**").permitAll()
+                .requestMatchers("/VacationList/**","/employeeList/**","/teamList/**","/vacationAdd/**").hasRole("USER")
+                .requestMatchers("/vacationAdd/**","/vacationList/**","/vacationModify/**","/employeeAdd/**","/employeeModify/**","/teamModify/**","/teamAdd/**","/teamDelete/**","/vacationDelete/**","/employeeDelete/**").hasRole("SUPERUSER")
                 .requestMatchers("/admin/**").hasRole("ADMIN")
 //                .anyRequest().denyAll()
             )
