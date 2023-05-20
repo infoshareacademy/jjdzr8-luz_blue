@@ -65,13 +65,18 @@
                     <div class="col-md-4">
                         <label for="start" class="form-label">Rodzaj Urlopu</label>
                         <select class="form-select">
-                            <option value="1" th:field="*{vacationType}">Wypoczynkowy</option>
-                            <option value="2" th:field="*{vacationType}">Na żądanie</option>
-                            <option value="3" th:field="*{vacationType}">Inny</option>
+                            <select class="form-select">
+                                <option value="1" th:field="*{vacationType}">Wypoczynkowy</option>
+                                <option value="2" th:field="*{vacationType}">Ślub dziecka</option>
+                                <option value="3" th:field="*{vacationType}">Ślub pracownika</option>
+                                <option value="4" th:field="*{vacationType}">Okolicznościowy - pogrzeb  </option>
+                                <option value="5" th:field="*{vacationType}">Na żądanie</option>
+                                <option value="6" th:field="*{vacationType}">Inny</option>
+                            </select>
                         </select>
                     </div>
                     <div class="col-12">
-                        <button class="btn btn-success" type="submit">Dodaj Urlopa</button>
+                        <button class="btn btn-success" type="submit">Dodaj Urlop</button>
                     </div>
                 </form>
             </div>
