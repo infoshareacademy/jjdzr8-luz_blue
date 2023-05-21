@@ -54,7 +54,7 @@ public class EmployeeController {
         }
         dataManagerEmployees.addEmployee(employee);
         logger.info("POST /employeeAdd - new employee added successfully");
-        return "redirect:/index";
+        return "redirect:/employeeList";
     }
 
 
